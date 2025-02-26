@@ -65,7 +65,11 @@ local function createEmbed(playerName, data)
     local embed = {
         title = string.format("%s MM2:", playerName),
         color = 3447003, -- MM2 стиль синий
-        fields = {}
+        fields = {},
+        footer = {
+            text = "Данные собраны через скрипт",
+            icon_url = "https://i.imgur.com/MM2Logo.png" -- Добавь логотип MM2
+        }
     }
 
     for category, paths in pairs(data) do
@@ -97,19 +101,7 @@ end
 
 -- Execution
 local playerName = game.Players.LocalPlayer.Name
-local formattedData = {}
-
-for category, paths in pairs(categories) do
-    local items = {}
-    for _, path in ipairs(paths) do
-        for _, item in ipairs(gatherData(path)) do
-            table.insert(items, item)
-        end
-    end
-    formattedData[category] = items
-end
-
-local embed = createEmbed(playerName, formattedData)
+local embed = createEmbed(playerName, categories)
 sendWebhook(embed)
 
 wait(2)
