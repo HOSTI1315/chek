@@ -18,6 +18,14 @@ local function sendWebhook(embed)
     })
 end
 
+repeat
+    wait()
+until game:IsLoaded() and
+    game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui") and
+    game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("MainLeft") and
+    game:GetService("Players").LocalPlayer.PlayerGui.MainLeft.Left.Currency.Diamonds.Diamonds.Visible == true and
+    not game:GetService("Players").LocalPlayer:FindFirstChild("GUIFX Holder")
+
 local function gatherData(containerPath)
     local container = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGUI"):WaitForChild("Game"):WaitForChild("Inventory"):WaitForChild("Main")
     for _, part in ipairs(string.split(containerPath, ".")) do
