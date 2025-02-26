@@ -56,7 +56,7 @@ local args = {
     [2] = "Pirates"
 }
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-wait(2)
+wait(3)
 
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local player = game.Players.LocalPlayer
